@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<main id="app" class="w-screen h-screen flex flex-col justify-around items-center">
+
+
+	<section class="w-1/3">
+		<label>Current username: </label>
+		<input type="text" v-model="username" v-on:change="registername()" placeholder="New username">
+	</section>
+
+	<section class="h-4/5 bg-gray-100 mt-4 pt-2 text-white w-1/3 flex flex-col rounded-2xl">
+		<div v-for="(message, index) in messages" class="">
+			<div class="rounded mr-4 ml-4 m-2 p-2 " v-bind:class="{ 'bg-gray-800': message.user == username, 'bg-blue-500': message.user != username }">
+				<p class="text-xs bruh">{{message.user}}</p>
+				<p class="text-lg">{{message.text}}</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="w-1/3">
+		<input type="text" placeholder="Message...." v-model="bruh">
+		<button v-on:click="sendmessage()">send</button>
+	</section>
+
+
+	</main>
+	<script src="../dist/js/index/index.js"></script>
+
+	<style>
+		.bruh {
+			margin-bottom: -0.5rem;
+		}
+	</style>
+</body>
+</html>
